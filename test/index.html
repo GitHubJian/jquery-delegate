@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <style>
+    div {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="test">
+    <div class="123">123123</div>
+  </div>
+
+  <script src="../lib/index.js"></script>
+
+  <script>
+    var test = document.getElementById('test')
+
+    delegate.on(test, 'click', function () {
+      console.log(1);
+    }, 'test2')
+
+    setTimeout(function () {
+      var div = document.createElement('div')
+      div.className = 'test2'
+      div.innerText = 'test2'
+
+      test.appendChild(div)
+
+      setTimeout(function () {
+        div.click()
+      }, 1e3)
+    }, 2e3)
+  </script>
+
+</body>
+
+</html>
